@@ -1,24 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import Gap from "./components/atoms/Gap";
+import Hero from "./components/moleculs/Hero";
+import Header from "./components/organismes/Header";
+import CardClass from "./templates/CardClass";
+import CardInstructor from "./templates/CardInstructor";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <main className="bg-slate-50">
+        <Hero />
+        <div className="px-10 py-10 mb-40 max-w-6xl mx-auto">
+          <CardClass />
+          <Gap height={40} />
+          <CardInstructor />
+        </div>
+      </main>
+    </>
   );
 }
 
