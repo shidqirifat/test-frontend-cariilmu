@@ -1,10 +1,14 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { ImageCardClass, ImageCardInstructor } from "../atoms/Image";
 import { TextCardClass, TextCardInstructor } from "../moleculs/TextCard";
 
-export function ClassCard({ category, method, level, title }) {
+export function ClassCard({ category, method, level, title, id }) {
   return (
-    <div className="bg-white p-6 rounded-md shadow-md relative overflow-hidden">
+    <Link
+      to={`/classes/${id}`}
+      className="bg-white p-6 rounded-md shadow-md relative overflow-hidden"
+    >
       <ImageCardClass alt={title} />
       <TextCardClass
         category={category}
@@ -12,15 +16,15 @@ export function ClassCard({ category, method, level, title }) {
         level={level}
         title={title}
       />
-    </div>
+    </Link>
   );
 }
 
-export function InstructorCard({ social, avatar, name }) {
+export function InstructorCard({ social, avatar, name, id }) {
   return (
     <div className="bg-white p-6 mt-20 rounded-md relative shadow-md">
       <ImageCardInstructor alt={name} src={avatar} />
-      <TextCardInstructor name={name} social={social} />
+      <TextCardInstructor name={name} social={social} id={id} />
     </div>
   );
 }

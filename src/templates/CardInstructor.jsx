@@ -38,6 +38,7 @@ export default function CardInstructor() {
       social={instructor?.social_media}
       name={instructor?.name}
       avatar={instructor?.avatar}
+      id={instructor?.id}
       key={instructor?.id}
     />
   ));

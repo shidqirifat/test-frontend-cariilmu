@@ -5,8 +5,8 @@ export default function Nav() {
   return (
     <ul className="flex">
       <NavItem path="/">Home</NavItem>
-      <NavItem path="/class">Class</NavItem>
-      <NavItem path="/instructor">Instructor</NavItem>
+      <NavItem path="/classes">Class</NavItem>
+      <NavItem path="/instructors">Instructor</NavItem>
     </ul>
   );
 }

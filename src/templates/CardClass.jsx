@@ -39,6 +39,7 @@ export default function CardClass() {
       category={classItem?.course_category?.name}
       method={classItem?.course_teach_method?.name}
       level={classItem?.course_level?.name}
+      id={classItem?.id}
       key={classItem?.id}
     />
   ));

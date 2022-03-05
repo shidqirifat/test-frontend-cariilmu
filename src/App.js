@@ -1,22 +1,20 @@
-import Gap from "./components/atoms/Gap";
-import Hero from "./components/moleculs/Hero";
 import Header from "./components/organismes/Header";
-import CardClass from "./templates/CardClass";
-import CardInstructor from "./templates/CardInstructor";
+import Home from "./pages/Home";
+import Class from "./pages/Class";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <>
+    <Router>
       <Header />
       <main className="bg-slate-50">
-        <Hero />
-        <div className="px-10 py-10 mb-40 max-w-6xl mx-auto">
-          <CardClass />
-          <Gap height={40} />
-          <CardInstructor />
-        </div>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/classes" element={<Class />} />
+          <Route path="/instructors" element={<Class />} />
+        </Routes>
       </main>
-    </>
+    </Router>
   );
 }
 

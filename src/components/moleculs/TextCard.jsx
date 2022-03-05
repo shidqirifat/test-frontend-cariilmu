@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   CategoryLevelCard,
   MethodCardClass,
@@ -17,7 +18,7 @@ export function TextCardClass({ category, level, method, title }) {
   );
 }
 
-export function TextCardInstructor({ name, social }) {
+export function TextCardInstructor({ name, social, id }) {
   const SocialElement = social.map((socialItem, index) => (
     <SocialCardInstructor
       link={socialItem.url}
@@ -28,7 +29,9 @@ export function TextCardInstructor({ name, social }) {
 
   return (
     <div className="pt-24">
-      <TitleCardInstructor>{name}</TitleCardInstructor>
+      <Link to={`/instructors/${id}`}>
+        <TitleCardInstructor>{name}</TitleCardInstructor>
+      </Link>
       <div className="mt-4 flex gap-4 pb-6 justify-center items-center">
         {SocialElement}
       </div>
