@@ -1,11 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { EmptyCardClass } from "../components/moleculs/EmptyCard";
 import { ClassCard } from "../components/organismes/Card";
 
 export default function CardClass() {
   const [listClass, setListClass] = useState([]);
-  const url = window.location.pathname;
+  const url = useLocation().pathname;
 
   useEffect(() => {
     getClassAPI();
@@ -45,11 +46,11 @@ export default function CardClass() {
   ));
 
   return (
-    <div>
+    <div className="px-4">
       <h2 className="font-semibold text-2xl text-slate-800 py-6">List Class</h2>
       <div className="grid grid-card gap-8">
         {CardsElement}
-        <EmptyCardClass />
+        {isPageHome() && <EmptyCardClass />}
       </div>
     </div>
   );

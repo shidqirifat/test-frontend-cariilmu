@@ -1,24 +1,25 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { TextEmptyCard } from "../atoms/Text";
 
 export function EmptyCardClass() {
   return (
-    <a
+    <Link
       className="group h-full bg-white hover:bg-slate-100 rounded-md shadow-md transition grid items-center"
-      href="/class"
+      to="/classes"
     >
       <TextEmptyCard>See All Class</TextEmptyCard>
-    </a>
+    </Link>
   );
 }
 
 export function EmptyCardIntructor() {
   return (
-    <a
+    <Link
       className="group h-full bg-white hover:bg-slate-100 rounded-md shadow-md transition grid items-center"
-      href="/instructor"
+      to="/instructors"
     >
       <TextEmptyCard>See All Intructor</TextEmptyCard>
-    </a>
+    </Link>
   );
 }

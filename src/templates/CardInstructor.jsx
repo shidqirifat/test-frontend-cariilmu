@@ -2,10 +2,11 @@
 import React, { useEffect, useState } from "react";
 import { EmptyCardIntructor } from "../components/moleculs/EmptyCard";
 import { InstructorCard } from "../components/organismes/Card";
+import { useLocation } from "react-router-dom";
 
 export default function CardInstructor() {
   const [listInstructor, setListInstructor] = useState([]);
-  const url = window.location.pathname;
+  const url = useLocation().pathname;
 
   useEffect(() => {
     getClassAPI();
@@ -44,13 +45,13 @@ export default function CardInstructor() {
   ));
 
   return (
-    <div>
+    <div className="px-4">
       <h2 className="font-semibold text-2xl text-slate-800 py-6">
         List Instructor
       </h2>
       <div className="grid grid-card gap-8">
         {CardsElement}
-        <EmptyCardIntructor />
+        {isPageHome() && <EmptyCardIntructor />}
       </div>
     </div>
   );

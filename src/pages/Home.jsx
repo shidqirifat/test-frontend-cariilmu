@@ -6,13 +6,13 @@ import CardInstructor from "../templates/CardInstructor";
 
 export default function Home() {
   return (
-    <>
+    <div>
       <Hero />
-      <div className="px-10 py-10 mb-40 max-w-6xl mx-auto">
+      <div className="px-4 pt-10 pb-40 max-w-6xl mx-auto">
         <CardClass />
         <Gap height={40} />
         <CardInstructor />
       </div>
-    </>
+    </div>
   );
 }

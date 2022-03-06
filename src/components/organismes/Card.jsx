@@ -7,7 +7,7 @@ export function ClassCard({ category, method, level, title, id }) {
   return (
     <Link
       to={`/classes/${id}`}
-      className="bg-white p-6 rounded-md shadow-md relative overflow-hidden"
+      className="bg-white hover:bg-slate-100 transition p-6 rounded-md shadow-md hover:shadow-lg relative overflow-hidden"
     >
       <ImageCardClass alt={title} />
       <TextCardClass
@@ -22,7 +22,7 @@ export function ClassCard({ category, method, level, title, id }) {
 
 export function InstructorCard({ social, avatar, name, id }) {
   return (
-    <div className="bg-white p-6 mt-20 rounded-md relative shadow-md">
+    <div className="bg-white hover:bg-slate-100 transition p-6 mt-20 rounded-md relative shadow-md hover:shadow-lg">
       <ImageCardInstructor alt={name} src={avatar} />
       <TextCardInstructor name={name} social={social} id={id} />
     </div>
