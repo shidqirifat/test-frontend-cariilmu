@@ -1,6 +1,7 @@
 import React from "react";
 import { ImageDetailClass } from "../atoms/Image";
 import { ContentDetail, ContentHero } from "../moleculs/TextDetailClass";
+import MaterialsClass from "./MaterialsClass";
 
 export function DetailHero({
   src,
@@ -35,19 +36,8 @@ export function DetailClass({ target, goals, materials, description }) {
   return (
     <div>
       <ContentDetail title="Target Pelatihan" detail={target} />
-      <ContentDetail
-        title="Goals Pelatihan"
-        detail={goals}
-        type="list"
-        section="goals"
-        mark="🏁"
-      />
-      <ContentDetail
-        title="Materi Pelatihan"
-        detail={materials}
-        type="list"
-        mark="🎯"
-      />
+      <ContentDetail title="Goals Pelatihan" detail={goals} type="list" />
+      <MaterialsClass title="Materi Pelatihan" materials={materials} />
       <ContentDetail
         title="Deskripsi Pelatihan"
         detail={description}

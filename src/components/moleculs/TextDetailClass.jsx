@@ -39,13 +39,7 @@ export function ContentHero({
   );
 }
 
-export function ContentDetail({
-  title,
-  detail,
-  section,
-  type = "paragraph",
-  mark = "•",
-}) {
+export function ContentDetail({ title, detail, type = "paragraph" }) {
   let listElement;
   const [limitItem, setLimitItem] = useState(true);
   const [items, setItems] = useState([...detail]);
@@ -68,12 +62,7 @@ export function ContentDetail({
 
   if (type === "list") {
     listElement = items.map((item) => (
-      <ContentDetailClass
-        key={item.id}
-        type={type}
-        mark={mark}
-        section={section}
-      >
+      <ContentDetailClass key={item.id} type={type}>
         {item.description}
       </ContentDetailClass>
     ));
@@ -84,16 +73,12 @@ export function ContentDetail({
       <SubTitleDetailClass>{title}</SubTitleDetailClass>
       {type === "list" ? (
         <>
-          <ul
-            className={`${
-              section === "goals"
-                ? "grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2"
-                : ""
-            } transition`}
-          >
+          <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2 transition">
             {listElement}
           </ul>
-          <ButtonExpand expand={limitItem} handleFunction={handleLimitItem} />
+          {detail.length > 4 && (
+            <ButtonExpand expand={limitItem} handleFunction={handleLimitItem} />
+          )}
         </>
       ) : (
         <ContentDetailClass type={type}>{detail}</ContentDetailClass>

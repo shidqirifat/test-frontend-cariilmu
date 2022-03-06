@@ -2,6 +2,7 @@ import React from "react";
 import { ReactComponent as InstagramLogo } from "../../icons/instagram.svg";
 import { ReactComponent as LinkedinLogo } from "../../icons/linkedin.svg";
 import { Link } from "react-router-dom";
+import { ReactComponent as Arrow } from "../../icons/arrow.svg";
 
 export function TitleHero({ children }) {
   return (
@@ -55,7 +56,7 @@ export function TextEmptyCard({ children }) {
 }
 
 export function NameDetailClass({ children }) {
-  return <h2 className="text-3xl text-slate-800 font-semibold">{children}</h2>;
+  return <h2 className="text-3xl text-slate-700 font-semibold">{children}</h2>;
 }
 
 export function SubTitleDetailClass({ children }) {
@@ -64,15 +65,12 @@ export function SubTitleDetailClass({ children }) {
   );
 }
 
-export function ContentDetailClass({ children, type, mark, section }) {
+export function ContentDetailClass({ children, type }) {
   if (type === "list") {
     return (
-      <li
-        className={`${
-          section === "goals" ? "p-2 bg-slate-300 rounded-md" : ""
-        }`}
-      >
-        {mark} {children}
+      <li className="flex gap-4 p-2 bg-slate-300 rounded-md">
+        <h2>🏁</h2>
+        <h2>{children}</h2>
       </li>
     );
   }
@@ -82,11 +80,38 @@ export function ContentDetailClass({ children, type, mark, section }) {
 }
 
 export function PriceDetailClass({ children }) {
-  return <h2 className="text-xl text-slate-600 font-bold">{children}</h2>;
+  return <h2 className="text-2xl py-2 text-slate-800 font-bold">{children}</h2>;
 }
 
 export function ExtraInfoDetailClass({ children }) {
   return <h2 className="text-slate-700 text-lg">{children}</h2>;
+}
+
+export function TitleMatery({ children, handleFunction, hidden }) {
+  return (
+    <div
+      onClick={handleFunction}
+      className="flex gap-4 px-4 bg-slate-200 items-center"
+    >
+      <Arrow
+        width={25}
+        height={25}
+        fill="black"
+        className={`${hidden ? "" : "rotate-180"} transition inline-block`}
+      />{" "}
+      <h2 onClick={handleFunction} className="py-4 font-semibold">
+        {children}
+      </h2>
+    </div>
+  );
+}
+
+export function DescriptionMatery({ children, hidden }) {
+  return (
+    <h3 className={`${hidden ? "h-0" : "h-max py-4"} ml-[44px] pr-3`}>
+      {children}
+    </h3>
+  );
 }
 
 export function InstructorDetailClass({ children, link, name }) {

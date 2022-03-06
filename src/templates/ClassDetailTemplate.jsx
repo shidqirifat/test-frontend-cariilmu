@@ -17,7 +17,7 @@ export default function ClassDetailTemplate() {
       `https://api.cariilmu.co.id/api/v1/public/course/${instructorId}`
     );
     const classData = await response.json();
-    const allClass = classData.data;
+    const allClass = await classData.data;
     setDetailClass(allClass);
   }
 
@@ -31,10 +31,10 @@ export default function ClassDetailTemplate() {
             className={detailClass?.name}
             price={detailClass?.price}
             instructorName={
-              detailClass?.instructor && detailClass?.instructor[0]?.name
+              detailClass?.instructors && detailClass?.instructors[0]?.name
             }
             instructorId={
-              detailClass?.instructor && detailClass?.instructor[0]?.id
+              detailClass?.instructors && detailClass?.instructors[0]?.id
             }
             duration={detailClass?.duration}
             category={detailClass?.course_category?.name}
