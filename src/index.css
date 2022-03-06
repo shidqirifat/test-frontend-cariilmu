@@ -6,4 +6,7 @@
   .grid-card {
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   }
+  .grid-instructor {
+    grid-template-columns: 1fr 2fr;
+  }
 }

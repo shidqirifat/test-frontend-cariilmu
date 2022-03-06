@@ -31,9 +31,13 @@ export function TitleCardClass({ children }) {
   return <h2 className="text-xl font-semibold text-slate-700">{children}</h2>;
 }
 
-export function TitleCardInstructor({ children }) {
+export function TitleCardInstructor({ children, link = true }) {
   return (
-    <h2 className="text-xl font-semibold text-center text-slate-700 hover:underline hover:underline-offset-4 transition">
+    <h2
+      className={`text-xl font-semibold text-center text-slate-700 ${
+        link ? "hover:underline hover:underline-offset-4" : ""
+      } transition`}
+    >
       {children}
     </h2>
   );
@@ -42,7 +46,8 @@ export function TitleCardInstructor({ children }) {
 export function SocialCardInstructor({ link, type }) {
   return (
     <a href={link} target="_blank" rel="noreferrer" className="h-8 w-8">
-      {type === "INSTAGRAM" ? <InstagramLogo /> : <LinkedinLogo />}
+      {type === "INSTAGRAM" && <InstagramLogo />}
+      {type === "LINKEDIN" && <LinkedinLogo />}
     </a>
   );
 }
@@ -75,12 +80,18 @@ export function ContentDetailClass({ children, type }) {
     );
   }
   if (type === "html") {
-    return <h2 dangerouslySetInnerHTML={{ __html: children }} />;
-  } else return <h2>{children}</h2>;
+    return (
+      <h2 dangerouslySetInnerHTML={{ __html: children }} className="mr-6" />
+    );
+  } else return <h2 className="mr-6">{children}</h2>;
 }
 
 export function PriceDetailClass({ children }) {
   return <h2 className="text-2xl py-2 text-slate-800 font-bold">{children}</h2>;
+}
+
+export function EmailProfileInstructor({ children }) {
+  return <h2 className="text-slate-700 text-lg pt-1 pb-2">{children}</h2>;
 }
 
 export function ExtraInfoDetailClass({ children }) {
@@ -108,7 +119,7 @@ export function TitleMatery({ children, handleFunction, hidden }) {
 
 export function DescriptionMatery({ children, hidden }) {
   return (
-    <h3 className={`${hidden ? "h-0" : "h-max py-4"} ml-[44px] pr-3`}>
+    <h3 className={`${hidden ? "h-0" : "h-max py-4"} ml-[44px] pr-3 bg-white`}>
       {children}
     </h3>
   );

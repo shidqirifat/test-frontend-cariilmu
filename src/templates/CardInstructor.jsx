@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
-import { EmptyCardIntructor } from "../components/moleculs/EmptyCard";
+import EmptyCard from "../components/moleculs/EmptyCard";
 import { InstructorCard } from "../components/organismes/Card";
 import { useLocation } from "react-router-dom";
 
@@ -51,8 +51,9 @@ export default function CardInstructor() {
       </h2>
       <div className="grid grid-card gap-8">
         {CardsElement}
-        {isPageHome() && <EmptyCardIntructor />}
+        {isPageHome() && <EmptyCard size="full" type="instructor" />}
       </div>
+      <EmptyCard type="instructor" />
     </div>
   );
 }

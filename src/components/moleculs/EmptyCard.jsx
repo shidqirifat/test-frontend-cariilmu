@@ -2,24 +2,19 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { TextEmptyCard } from "../atoms/Text";
 
-export function EmptyCardClass() {
+export default function EmptyCard({ size, type }) {
   return (
     <Link
-      className="group h-full bg-white hover:bg-slate-100 rounded-md shadow-md transition grid items-center"
-      to="/classes"
-    >
-      <TextEmptyCard>See All Class</TextEmptyCard>
-    </Link>
-  );
-}
-
-export function EmptyCardIntructor() {
-  return (
-    <Link
-      className="group h-full bg-white hover:bg-slate-100 rounded-md shadow-md transition grid items-center"
+      className={`group ${
+        size === "full"
+          ? "hidden laptop:grid laptop:h-full"
+          : "mt-4 py-4 laptop:hidden grid"
+      } bg-slate-100 hover:bg-slate-200 rounded-md shadow-md hover:shadow-lg transition items-center`}
       to="/instructors"
     >
-      <TextEmptyCard>See All Intructor</TextEmptyCard>
+      <TextEmptyCard>
+        See All {type === "class" ? "Class" : "Intructor"}
+      </TextEmptyCard>
     </Link>
   );
 }

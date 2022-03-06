@@ -39,3 +39,11 @@ export function ImageDetailClass({ src, alt }) {
     </div>
   );
 }
+
+export function ImageDetailInstructor({ src, alt }) {
+  return (
+    <div className="h-52 w-52 overflow-hidden rounded-full">
+      <img src={src} alt={alt} className="object-cover h-full w-full" />
+    </div>
+  );
+}

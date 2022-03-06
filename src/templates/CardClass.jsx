@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { EmptyCardClass } from "../components/moleculs/EmptyCard";
+import EmptyCard from "../components/moleculs/EmptyCard";
 import { ClassCard } from "../components/organismes/Card";
 
 export default function CardClass() {
@@ -50,8 +50,9 @@ export default function CardClass() {
       <h2 className="font-semibold text-2xl text-slate-800 py-6">List Class</h2>
       <div className="grid grid-card gap-8">
         {CardsElement}
-        {isPageHome() && <EmptyCardClass />}
+        {isPageHome() && <EmptyCard size="full" type="class" />}
       </div>
+      {isPageHome() && <EmptyCard type="class" />}
     </div>
   );
 }
